@@ -4,6 +4,12 @@ Postgres (Supabase). Every table has `id uuid pk default gen_random_uuid()`, `cr
 
 Guests have no accounts: reviews store the guest's details directly.
 
+Implemented in `supabase/migrations/` (W1). Private fields live in separate `*_private` tables with stricter RLS, so a public `select *` can never leak them. RLS helper and trigger functions live in the `private` schema, which is not exposed through the API. Generate TypeScript types after every migration:
+
+```bash
+npx supabase gen types typescript --project-id rpufaenudwjwizkncttv --schema public > src/lib/supabase/database.types.ts
+```
+
 ## Enums
 ```sql
 user_role          : 'animator' | 'hotel_staff' | 'moderator' | 'super_admin'
@@ -19,13 +25,21 @@ lang_level         : 'basic' | 'good' | 'fluent'
 ## Tables
 
 ### profiles (1–1 with auth.users; animators, hotel staff and admins only)
-`user_id (fk auth.users)`, `role user_role`, `display_name`, `locale locale`, `avatar_url`, `banned_at`
+`id (= auth.users.id)`, `role user_role`, `display_name`, `locale locale`, `avatar_url`, `banned_at`
 
 ### animators
-`profile_id (fk, unique)`, `slug (unique)`, `qr_code (unique, short random ID, set once, never changes)`, `bio`, `birth_year`, `city`, `branches branch[]`, `languages jsonb` ([{code, level}]), `experience_years`, `available_from`, `available_to`, `seeking_job bool`, `instagram_url`, `tiktok_url`, `whatsapp_phone` (E.164, e.g. +905…), `boost_until timestamptz`, `showreel_media_id`
+`profile_id (fk, unique)`, `slug (unique, from the name at sign-up, e.g. ayse-celik)`, `qr_code (unique, short random ID, set once, never changes — enforced by trigger)`, `bio`, `birth_year`, `city`, `branches branch[]`, `languages jsonb` ([{code, level}]), `experience_years`, `available_from`, `available_to`, `seeking_job bool`, `instagram_url`, `tiktok_url`, `boost_until timestamptz` (admins only), `showreel_media_id`
+
+Created automatically with `animator_private` and `animator_scores` rows by the `handle_new_user` trigger when someone signs up as an animator.
+
+### animator_private
+`animator_id (pk)`, `whatsapp_phone` (E.164, e.g. +905…) — readable by the owner, members of approved hotels and admins
 
 ### hotels
-`slug (unique)`, `name`, `stars`, `concepts text[]`, `region_id (fk regions)`, `address`, `lat`, `lng` (map display only), `website_url`, `booking_url`, `whatsapp_phone`, `program jsonb`, `perks jsonb` (accommodation, meals, insurance), `hiring jsonb` ("we're hiring": [{branch, count, from, to}]), `tax_no`, `verification_status`, `featured_until`
+`slug (unique)`, `name`, `stars`, `concepts text[]`, `region_id (fk regions)`, `address`, `lat`, `lng` (map display only), `website_url`, `booking_url`, `program jsonb`, `perks jsonb` (accommodation, meals, insurance), `hiring jsonb` ("we're hiring": [{branch, count, from, to}]), `verification_status`, `featured_until` (both admin-only)
+
+### hotel_private
+`hotel_id (pk)`, `whatsapp_phone`, `tax_no` — readable by hotel members and admins; the phone also by logged-in animators
 
 ### regions
 `slug`, `name_tr`, `name_en`, `name_ru`, `city` — Belek, Side, Kemer, Bodrum, Marmaris, Kuşadası…
@@ -38,9 +52,12 @@ lang_level         : 'basic' | 'good' | 'fluent'
 - Constraint: one `active` per animator (partial unique index)
 
 ### reviews (guest reviews only)
-`animator_id`, `hotel_id (null; the animator's active hotel at review time)`, `guest_email` (never public), `guest_first_name`, `guest_last_name`, `guest_country` (ISO 3166 alpha-2), `rating smallint (1–5)`, `body text`, `source ('qr'|'profile')` (stats only, no effect on score), `locale`, `status content_status`, `reply_body`, `reply_at`
-- Constraint: one review per lower(guest_email) + animator within 30 days (trigger)
-- Public reads go through a view that exposes first name, last-name initial and country only
+`animator_id`, `hotel_id (null; the animator's active hotel at review time)`, `guest_first_name`, `guest_last_initial`, `guest_country` (ISO 3166 alpha-2), `rating smallint (1–5)`, `body text`, `source ('qr'|'profile')` (stats only, no effect on score), `locale`, `status content_status`, `reply_body`, `reply_at`
+- Created only through the `submit_review()` database function (callable without login), which also enforces one review per lower(email) + animator within 30 days
+- Animators may only write `reply_*`, once (trigger)
+
+### review_private
+`review_id (pk)`, `guest_email`, `guest_last_name` — admins only
 
 ### animator_scores (cache)
 `animator_id (pk)`, `rating_avg`, `rating_count`, `ranking_score`, `updated_at` — updated by a reviews trigger

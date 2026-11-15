@@ -1,0 +1,18 @@
+<!-- Sign-up confirmation. {{ .RedirectTo }} is set by the app and already
+     contains "?next=..." so we append the token with "&". -->
+<div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; color: #1a1a1a">
+  <h2 style="margin-bottom: 4px">HoliJoy</h2>
+  {{ if eq .Data.locale "en" }}
+  <p>Hi {{ .Data.display_name }}, please confirm your email address to activate your HoliJoy account.</p>
+  <p><a href="{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:12px 20px;background:#0f6b78;color:#fff;border-radius:8px;text-decoration:none">Confirm my email</a></p>
+  <p style="color:#666;font-size:13px">If you did not create an account, you can ignore this email.</p>
+  {{ else if eq .Data.locale "ru" }}
+  <p>Здравствуйте, {{ .Data.display_name }}! Подтвердите адрес электронной почты, чтобы активировать аккаунт HoliJoy.</p>
+  <p><a href="{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:12px 20px;background:#0f6b78;color:#fff;border-radius:8px;text-decoration:none">Подтвердить email</a></p>
+  <p style="color:#666;font-size:13px">Если вы не создавали аккаунт, просто проигнорируйте это письмо.</p>
+  {{ else }}
+  <p>Merhaba {{ .Data.display_name }}, HoliJoy hesabını etkinleştirmek için e-posta adresini doğrula.</p>
+  <p><a href="{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:12px 20px;background:#0f6b78;color:#fff;border-radius:8px;text-decoration:none">E-postamı doğrula</a></p>
+  <p style="color:#666;font-size:13px">Bu hesabı sen oluşturmadıysan bu e-postayı yok sayabilirsin.</p>
+  {{ end }}
+</div>
