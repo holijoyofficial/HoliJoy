@@ -54,7 +54,7 @@ Users can also pick "Highest rated", "Most reviewed", "Newest". No sorting by lo
 
 | What | How | Approved by | Badge |
 |---|---|---|---|
-| Hotel | Corporate email, tax number, authorization document | Admin | Verified hotel |
+| Hotel | Corporate email, authorization document (no tax number) | Admin | Verified hotel |
 | Animator | Email verification (mandatory at sign-up) | System + admin | — |
 | Employment | Animator declaration + hotel confirmation | Hotel; disputes go to admin | Hotel confirmed |
 | Review | None (open form) | Moderated by admin | — |

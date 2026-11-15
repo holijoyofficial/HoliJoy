@@ -39,7 +39,7 @@ Created automatically with `animator_private` and `animator_scores` rows by the 
 `slug (unique)`, `name`, `stars`, `concepts text[]`, `region_id (fk regions)`, `address`, `lat`, `lng` (map display only), `website_url`, `booking_url`, `program jsonb`, `perks jsonb` (accommodation, meals, insurance), `hiring jsonb` ("we're hiring": [{branch, count, from, to}]), `verification_status`, `featured_until` (both admin-only)
 
 ### hotel_private
-`hotel_id (pk)`, `whatsapp_phone`, `tax_no` — readable by hotel members and admins; the phone also by logged-in animators
+`hotel_id (pk)`, `whatsapp_phone` — readable by hotel members and admins, and by logged-in animators (tax number dropped 16 Nov 2026)
 
 ### regions
 `slug`, `name_tr`, `name_en`, `name_ru`, `city` — Belek, Side, Kemer, Bodrum, Marmaris, Kuşadası…

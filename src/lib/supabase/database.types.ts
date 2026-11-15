@@ -201,14 +201,14 @@ isOneToOne: false
                   ]
                 },"hotel_private": {
                   Row: {
-                    "created_at": string,"hotel_id": string,"tax_no": string | null,"updated_at": string,"whatsapp_phone": string | null
+                    "created_at": string,"hotel_id": string,"updated_at": string,"whatsapp_phone": string | null
                   }
                   ComputedFields: never
                   Insert: {
-                    "created_at"?: string,"hotel_id": string,"tax_no"?: string | null,"updated_at"?: string,"whatsapp_phone"?: string | null
+                    "created_at"?: string,"hotel_id": string,"updated_at"?: string,"whatsapp_phone"?: string | null
                   }
                   Update: {
-                    "created_at"?: string,"hotel_id"?: string,"tax_no"?: string | null,"updated_at"?: string,"whatsapp_phone"?: string | null
+                    "created_at"?: string,"hotel_id"?: string,"updated_at"?: string,"whatsapp_phone"?: string | null
                   }
                   Relationships: [
                     {
