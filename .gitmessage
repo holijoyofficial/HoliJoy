@@ -1,0 +1,7 @@
+
+# <type>(<scope>): <what changed, in plain English>   (max ~72 chars)
+#
+# Types: feat, fix, docs, style, refactor, test, chore, ci
+# Example: feat(home): add coming-soon landing page in Turkish and English
+#
+# Body (optional): why, and details worth knowing. English only.
