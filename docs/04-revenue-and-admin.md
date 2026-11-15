@@ -5,24 +5,28 @@
 ### Animator Boost — `[₺__]/month`, `[₺__]/season`
 - A labelled "Featured" slot in search (see 03, boost rules)
 - Premium badge, cover video, larger media quota
-- Stats panel: profile views, which hotels looked, follower growth
+- Stats panel: profile views, WhatsApp / call clicks, which hotels looked
 - Prerequisite: verified email, complete profile
-- Launch idea: 1 month of free boost for animators verified in the first season (campaign code)
+- Launch idea: 1 month of free boost for the first animators (admin grants it)
 
 ### Featured hotel — `[₺__]/month`
 - Labelled, at the top of guest search and region rankings
 - Booking click report
-- **MVP:** enabled manually by admin (`hotels.featured_until`). Self-service purchase in Phase 2.
+- Enabled manually by admin (`hotels.featured_until`)
 
 Prices to be set by the team.
 
-## Payments — iyzico
-- Requires a company account (exists / to be set up)
-- One-time payment (buying boost time) + subscription (monthly boost)
-- Flow: Checkout Form → iyzico callback → server **re-verifies** the payment via the iyzico API → `payments` row → `boosts` period extended
-- Webhook/callback must be idempotent (a payment is never processed twice: `iyzico_payment_id` unique)
-- Refunds from the admin panel; boost time is revoked
-- E-invoice / e-archive integration in Phase 2 (manual accounting until then)
+## Payments — no on-site payment system
+There is **no payment gateway** (no iyzico or similar) and there won't be one until the project grows significantly.
+
+1. `/pricing` and the animator's Boost page show the prices and the **company bank details** (company name, IBAN, bank) plus a payment reference to write in the transfer description (e.g. `HJ-<animator code>`)
+2. The animator transfers the money and sends the receipt (WhatsApp / email link on the page)
+3. An admin checks the company account, then activates the boost in the admin panel: start date, duration, amount, payment reference
+4. The animator gets an email: "Your boost is active until …"
+
+- Every activation is written to the audit log
+- Refunds are handled off-platform; the admin ends the boost early
+- Invoicing is done manually by the company's accountant
 
 ## Admin panel
 
@@ -31,10 +35,10 @@ Prices to be set by the team.
 | Module | Contents |
 |---|---|
 | Verification queues | Hotel applications, new animator accounts (review), employment disputes. Approve / reject (reason required) / request more documents |
-| Moderation | Reported reviews and media, automatic suspicion flags; hide / delete / restore |
+| Moderation | All guest reviews (with the reviewer's email), reported reviews and media, review-burst alerts; hide / delete / restore |
 | Users | Search, suspend, ban, add/remove hotel staff, change role |
-| Revenue | Boosts and payments, refunds, campaign codes, featured hotel assignment |
-| Metrics | Summary of sign-ups, matches, reviews, boost conversion; details in PostHog |
+| Revenue | Manual boost activation after bank transfer, boost history, featured hotel assignment |
+| Metrics | Summary of sign-ups, contact clicks, reviews, boosts; details in PostHog |
 | Audit log | Every admin action: who, what, when, why. **Cannot be deleted** (insert only) |
 
 Roles: `super_admin` (everything), `moderator` (queues + moderation; no revenue or bans).

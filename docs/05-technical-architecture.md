@@ -5,10 +5,10 @@
 Browser (mostly mobile)
    │
    ▼
-Next.js · Vercel ──► Supabase (Postgres, Auth, Realtime, private Storage, Cron)
-   │  SSR pages        ──► Resend (email)
-   │  Server Actions   ──► iyzico (payments)
-   │  Route handlers   ──► Sentry, PostHog
+Next.js · Vercel ──► Supabase (Postgres, Auth, private Storage, Cron)
+   │  SSR pages        ──► Our own SMTP server (email)
+   │  Server Actions   ──► Sentry, PostHog
+   │  Route handlers
    │
 Browser ──signed URL──► Cloudflare R2 (photos/videos, direct upload)
 ```
@@ -20,16 +20,14 @@ No servers to manage. Videos never pass through Next.js.
 |---|---|---|
 | Framework | Next.js 16 (App Router) + TypeScript | SEO via SSR; one language for front and back end |
 | UI | Tailwind CSS + shadcn/ui | Fast, consistent, accessible; brand tokens in one place |
-| i18n | next-intl | `/tr` (default), `/en` routes; new language = new translation file |
+| i18n | next-intl | `/tr` (default), `/en`, `/ru` routes; new language = new translation file |
 | Forms | React Hook Form + Zod | Same schema in the browser and on the server |
 | Database | Supabase Postgres | Relational data; admin dashboard and auto API included |
 | Auth | Supabase Auth | Email + password, email verification, magic link, Google |
-| Realtime | Supabase Realtime | Messages and the notification bell |
 | Private files | Supabase Storage (private bucket) | Hotel authorization documents |
 | Media | Cloudflare R2 | 10 GB free, free egress |
-| Email | Resend + React Email | Supabase's built-in SMTP is too limited for production; Resend is also plugged into Auth as SMTP |
-| Payments | iyzico | Turkish cards, subscriptions; Stripe is not available in Turkey |
-| Bot protection | Cloudflare Turnstile | Free, no puzzles |
+| Email | Our own SMTP server + React Email (via Nodemailer) | Set up later. Supabase's built-in SMTP is too limited for production; our SMTP is also plugged into Supabase Auth |
+| Payments | None on-site | Bank transfer to the company account; admin activates boosts manually (see 04) |
 | Monitoring | Sentry + PostHog | Error tracking; funnel analytics |
 | Maps | Leaflet + OpenStreetMap | No API key / billing (MapTiler etc. if traffic grows) |
 | Tests | Vitest (unit), Playwright (end-to-end) | |
@@ -40,7 +38,7 @@ Versions are pinned to the current stable release at setup.
 ### Why Supabase (vs Firebase and NestJS + Postgres)
 - The data is relational (hotel–animator–season–review) → SQL is natural; hard in Firebase
 - Authorization lives in the database via RLS; scheduled jobs via Supabase Cron
-- Auth, Realtime, Storage included → low maintenance
+- Auth, Storage included → low maintenance
 - Standard Postgres → can move to another provider if we grow, no rewrite
 
 ## Folder structure
@@ -51,8 +49,7 @@ src/
   app/[locale]/dashboard/hotel/...
   app/[locale]/account/...
   app/[locale]/admin/...
-  app/r/[token]/                    QR review (language from the browser)
-  app/api/iyzico/callback/          payment callback
+  app/q/[code]/                     permanent QR entry → redirects to the review form
   components/ui/                    shadcn components
   components/...                    domain components
   config/app.ts                     score weights and limits (single source)
@@ -75,11 +72,10 @@ tests/                              Vitest + Playwright
 - Database types are generated with `supabase gen types`, never written by hand
 - UI text always lives in `messages/*.json`; no hard-coded strings in components
 - Score weights and limits (requests/day, media size, …) live in `src/config/app.ts`
-- Playwright tests are mandatory for critical flows: sign-up + email verification, QR review, request–accept, payment
+- Playwright tests are mandatory for critical flows: sign-up + email verification, guest review (form + QR entry), employment confirmation, admin boost activation
 
 ## Scheduled jobs (Supabase Cron — pg_cron; jobs that send email trigger a Supabase Edge Function)
-- Daily: mark employment records past their end date `ended`; close expired boosts/featured listings; mark 14-day-old requests `expired`; delete hotel documents 30 days after approval; clean up expired QR tokens
-- Weekly: guest digest email
+- Daily: mark employment records past their end date `ended`; close expired boosts/featured listings; delete hotel documents 30 days after approval; boost-expiry reminder emails
 - Nightly: database dump (GitHub Actions)
 
 ## Media rules
