@@ -14,7 +14,7 @@
       },
       "hotels": {
         "title": "Hotels",
-        "body": "Search animators by branch, language and rating; reach them on WhatsApp in one tap and show your team on your profile."
+        "body": "Search animators by branch, language and rating; reach them on WhatsApp in one tap and rate your team at the end of the season."
       },
       "guests": {
         "title": "Holidaymakers",
@@ -188,7 +188,9 @@
     "noReviews": "No reviews yet",
     "reviewCount": "{count, plural, one {# review} other {# reviews}}",
     "whatsappMessage": "Hi {name}, I found you on HoliJoy.",
-    "call": "Call"
+    "call": "Call",
+    "guestScore": "Guests",
+    "hotelScore": "Hotels"
   },
   "Demo": {
     "badge": "Team only",

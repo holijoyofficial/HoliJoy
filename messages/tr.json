@@ -14,7 +14,7 @@
       },
       "hotels": {
         "title": "Oteller",
-        "body": "Branşa, dile ve puana göre animatör ara; tek dokunuşla WhatsApp'tan ulaş, ekibini profilinde göster."
+        "body": "Branşa, dile ve puana göre animatör ara; tek dokunuşla WhatsApp'tan ulaş, sezon sonunda ekibine puan ve yorum ver."
       },
       "guests": {
         "title": "Tatilciler",
@@ -188,7 +188,9 @@
     "noReviews": "Henüz yorum yok",
     "reviewCount": "{count, plural, other {# yorum}}",
     "whatsappMessage": "Merhaba {name}, sizi HoliJoy'da gördüm.",
-    "call": "Ara"
+    "call": "Ara",
+    "guestScore": "Misafirler",
+    "hotelScore": "Oteller"
   },
   "Demo": {
     "badge": "Yalnızca ekip için",

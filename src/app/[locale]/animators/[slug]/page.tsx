@@ -139,19 +139,27 @@ async function AnimatorProfile({ params }: { params: PageProps<"/[locale]/animat
   );
 }
 
-function Rating({ animator }: { animator: PublicAnimator }) {
+// Guest score and hotel score are shown separately (docs/03)
+async function Rating({ animator }: { animator: PublicAnimator }) {
+  const t = await getTranslations("AnimatorPage");
+  if (!animator.ratingCount && !animator.hotelRatingCount) {
+    return <span className="text-sm text-muted-foreground">{t("noReviews")}</span>;
+  }
   return (
-    <RatingText avg={animator.ratingAvg} count={animator.ratingCount} />
+    <>
+      <RatingText label={t("guestScore")} avg={animator.ratingAvg} count={animator.ratingCount} />
+      <RatingText label={t("hotelScore")} avg={animator.hotelRatingAvg} count={animator.hotelRatingCount} />
+    </>
   );
 }
 
-async function RatingText({ avg, count }: { avg: number | null; count: number }) {
+async function RatingText({ label, avg, count }: { label: string; avg: number | null; count: number }) {
   const t = await getTranslations("AnimatorPage");
   const format = await getFormatter();
-  if (!count || avg == null) return <span className="text-sm text-muted-foreground">{t("noReviews")}</span>;
+  if (!count || avg == null) return null;
   return (
-    <span className="text-sm font-medium">
-      ★ {format.number(Number(avg), { maximumFractionDigits: 1, minimumFractionDigits: 1 })}
+    <span className="rounded-full border px-2.5 py-0.5 text-sm font-medium">
+      {label} ★ {format.number(Number(avg), { maximumFractionDigits: 1, minimumFractionDigits: 1 })}
       <span className="text-muted-foreground"> · {t("reviewCount", { count })}</span>
     </span>
   );

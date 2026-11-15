@@ -51,6 +51,8 @@ export type PublicAnimator = {
   tiktokUrl: string | null;
   ratingAvg: number | null;
   ratingCount: number;
+  hotelRatingAvg: number | null;
+  hotelRatingCount: number;
 };
 
 // Public profile by slug. Cached on the server; invalidated by the
@@ -63,7 +65,7 @@ export async function getPublicAnimator(slug: string): Promise<PublicAnimator | 
   const supabase = createPublicClient();
   const { data } = await supabase
     .from("animators")
-    .select("*, profiles(display_name, avatar_url, banned_at), animator_scores(rating_avg, rating_count)")
+    .select("*, profiles(display_name, avatar_url, banned_at), animator_scores(rating_avg, rating_count, hotel_rating_avg, hotel_rating_count)")
     .eq("slug", slug)
     .maybeSingle();
   if (!data || !data.profiles || data.profiles.banned_at) return null;
@@ -87,6 +89,8 @@ export async function getPublicAnimator(slug: string): Promise<PublicAnimator | 
     tiktokUrl: data.tiktok_url,
     ratingAvg: data.animator_scores?.rating_avg ?? null,
     ratingCount: data.animator_scores?.rating_count ?? 0,
+    hotelRatingAvg: data.animator_scores?.hotel_rating_avg ?? null,
+    hotelRatingCount: data.animator_scores?.hotel_rating_count ?? 0,
   };
 }
 
