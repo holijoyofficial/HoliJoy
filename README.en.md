@@ -4,6 +4,7 @@
 
 A web marketplace that connects **hotel animators**, **hotels** and **holidaymakers** through verified ratings and reviews.
 
+- Live site (temporary address): **https://holijoy.soluiton.com** — every push to `main` goes live here
 - Product and technical spec: [`docs/`](docs/README.md)
 - How we write commits and work with Git: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
@@ -67,4 +68,4 @@ Every push to `main` deploys to production automatically; every other branch or 
 
 > **Vercel Hobby caveats:** the Hobby plan is for non-commercial use (fine for the MVP preview; switch to Pro before taking payments, see [docs/08](docs/08-roadmap.md)). On Hobby, a **private** repo may only auto-deploy commits from the Vercel account owner, and repos owned by a GitHub *organization* may not be importable. If teammates' pushes do not deploy, either make the repo public (no secrets live in the code) or move to Vercel Pro. Check Vercel's current docs when setting this up.
 
-> **`*.vercel.app` is blocked by some Turkish ISPs:** if `holijoy.vercel.app` does not open on home internet but works on mobile data, the ISP is blocking the domain (it blocks the TLS handshake by hostname). Fix: connect our own domain to Vercel. Until then, use mobile data or Cloudflare WARP (free).
+> **`*.vercel.app` is blocked by some Turkish ISPs:** if `holijoy.vercel.app` does not open on home internet but works on mobile data, the ISP is blocking the domain (it blocks the TLS handshake by hostname). That is why we always share the site on our own domain: for now `holijoy.soluiton.com` (a CNAME to Vercel in Cloudflare DNS, proxy off). Once the HoliJoy domain is bought, it gets added to Vercel and this record is removed.

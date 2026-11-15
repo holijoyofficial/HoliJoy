@@ -4,6 +4,7 @@
 
 **Otel animatörlerini**, **otelleri** ve **tatilcileri** doğrulanmış puan ve yorumlarla buluşturan bir web pazar yeri.
 
+- Canlı site (geçici adres): **https://holijoy.soluiton.com** — `main`e her push burada yayına çıkar
 - Ürün ve teknik spec: [`docs/`](docs/README.md) (İngilizce)
 - Commit yazma ve Git ile çalışma kuralları: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
@@ -67,4 +68,4 @@ Bkz. [`.env.example`](.env.example). Yerelde `.env.local` dosyasına (git'e girm
 
 > **Vercel Hobby uyarıları:** Hobby planı ticari olmayan kullanım içindir (MVP önizlemesi için uygun; ödeme almaya başlamadan önce Pro'ya geçilmeli, bkz. [docs/08](docs/08-roadmap.md)). Hobby'de **private** repoda yalnızca Vercel hesap sahibinin commit'leri otomatik yayına çıkabilir ve bir GitHub *organizasyonuna* ait repolar içe aktarılamayabilir. Ekip arkadaşlarının push'ları yayına çıkmıyorsa ya repoyu public yapın (kodda gizli bilgi yok) ya da Vercel Pro'ya geçin. Kurulum sırasında Vercel'in güncel dokümanlarını kontrol edin.
 
-> **`*.vercel.app` bazı Türk internet sağlayıcılarında engelli:** ev internetinde `holijoy.vercel.app` açılmıyor ama mobil veride açılıyorsa sorun bizde değil, sağlayıcı alan adını engelliyor. Çözüm: kendi alan adımızı (domain) Vercel'e bağlamak. O zamana kadar mobil veri ya da Cloudflare WARP (ücretsiz) ile açılabilir.
+> **`*.vercel.app` bazı Türk internet sağlayıcılarında engelli:** ev internetinde `holijoy.vercel.app` açılmıyor ama mobil veride açılıyorsa sorun bizde değil, sağlayıcı alan adını engelliyor. Bu yüzden siteyi her zaman kendi alan adımızdan paylaşıyoruz: şimdilik `holijoy.soluiton.com` (Cloudflare DNS'te Vercel'e CNAME, proxy kapalı). HoliJoy alan adı alınınca o da Vercel'e eklenip bu kayıt silinecek.
