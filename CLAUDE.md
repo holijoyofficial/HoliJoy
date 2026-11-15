@@ -12,7 +12,7 @@ Web marketplace for hotel animators, hotels and holidaymakers. The product and t
 - Sprints and open decisions: `docs/08-roadmap.md`
 
 Core rules:
-- **Everything in the repo is English**: routes, identifiers, file names, commit messages, PRs, docs. The only exception is the site's UI: Turkish is the default locale (`tr`), English is second (`en`).
+- **Everything in the repo is English**: routes, identifiers, file names, commit messages, PRs, docs. Exceptions: the site's UI (Turkish is the default locale `tr`, English second `en`) and `README.md`, which is Turkish for the team on GitHub (`README.en.md` is the English copy; keep both in sync).
 - Commits follow Conventional Commits in clear English (see `CONTRIBUTING.md`); the PM reads the history to follow progress.
 - Stack: Next.js 16 (App Router) + TypeScript, Tailwind + shadcn/ui, next-intl (TR/EN), Supabase, Cloudflare R2, Resend, iyzico.
 - Next.js 16 has breaking changes (e.g. `middleware` is now `proxy`); read `node_modules/next/dist/docs/` before using an API you are unsure about (see `AGENTS.md`).

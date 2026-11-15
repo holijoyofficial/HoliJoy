@@ -1,66 +1,68 @@
 # HoliJoy
 
-A web marketplace that connects **hotel animators**, **hotels** and **holidaymakers** through verified ratings and reviews.
+> 🇬🇧 English: [README.en.md](README.en.md)
 
-- Product and technical spec: [`docs/`](docs/README.md)
-- How we write commits and work with Git: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+**Otel animatörlerini**, **otelleri** ve **tatilcileri** doğrulanmış puan ve yorumlarla buluşturan bir web pazar yeri.
 
-The site's main language is Turkish (`/tr`, default) with English as second (`/en`). Everything else (code, routes, commits, docs) is in English.
+- Ürün ve teknik spec: [`docs/`](docs/README.md) (İngilizce)
+- Commit yazma ve Git ile çalışma kuralları: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-## Tech stack
+Sitenin ana dili Türkçe (`/tr`, varsayılan), ikinci dili İngilizce (`/en`). Bunun dışındaki her şey (kod, rotalar, commit'ler, dokümanlar) İngilizce.
 
-Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl · Supabase · Vercel. Planned: Cloudflare R2, Resend, iyzico. See [docs/05](docs/05-technical-architecture.md).
+## Teknolojiler
 
-## Run it locally
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl · Supabase · Vercel. Planlanan: Cloudflare R2, Resend, iyzico. Ayrıntı: [docs/05](docs/05-technical-architecture.md).
 
-Requirements: Node.js 20+ and npm.
+## Kendi bilgisayarında çalıştırma
+
+Gerekenler: Node.js 20+ ve npm.
 
 ```bash
-git clone <repo-url> holijoy
+git clone https://github.com/holijoyofficial/HoliJoy.git holijoy
 cd holijoy
 npm install
-cp .env.example .env.local   # then fill in the values (ask Mert/Doruk)
+cp .env.example .env.local   # sonra değerleri doldur (Mert/Doruk'a sor)
 npm run dev
 ```
 
-Open http://localhost:3000. You are redirected to http://localhost:3000/tr.
+http://localhost:3000 adresini aç; otomatik olarak http://localhost:3000/tr adresine yönlendirilirsin.
 
-| Command | What it does |
+| Komut | Ne yapar |
 |---|---|
-| `npm run dev` | Start the dev server with hot reload |
-| `npm run build` | Production build (run this before pushing bigger changes) |
-| `npm run start` | Serve the production build |
-| `npm run lint` | ESLint |
+| `npm run dev` | Geliştirme sunucusunu başlatır (değişiklikler anında görünür) |
+| `npm run build` | Canlı ortam derlemesi (büyük değişiklikleri push'lamadan önce çalıştır) |
+| `npm run start` | Canlı derlemeyi çalıştırır |
+| `npm run lint` | Kod kontrolü (ESLint) |
 
-## Project structure
+## Proje yapısı
 
 ```
-messages/            UI text: tr.json (default), en.json — never hard-code UI strings
+messages/            arayüz metinleri: tr.json (varsayılan), en.json — metinler koda gömülmez
 src/
-  app/[locale]/      pages; every route lives under /tr or /en
-  components/        React components (components/ui = shadcn)
-  config/app.ts      score weights and limits — the only place to change them
-  i18n/              next-intl routing and navigation helpers
-  lib/supabase/      Supabase clients (browser, server, proxy)
-  proxy.ts           locale redirect + Supabase session refresh (Next 16 "proxy" = old middleware)
-docs/                product and technical spec
+  app/[locale]/      sayfalar; her rota /tr veya /en altında
+  components/        React bileşenleri (components/ui = shadcn)
+  config/app.ts      skor ağırlıkları ve limitler — değiştirilecek tek yer
+  i18n/              next-intl yönlendirme ve navigasyon yardımcıları
+  lib/supabase/      Supabase istemcileri (tarayıcı, sunucu, proxy)
+  proxy.ts           dil yönlendirmesi + Supabase oturum yenileme (Next 16'da "proxy" = eski middleware)
+docs/                ürün ve teknik spec
 ```
 
-Adding a page: create `src/app/[locale]/<english-route>/page.tsx`, put its text in both `messages/tr.json` and `messages/en.json`, and use `Link` from `@/i18n/navigation` (not `next/link`) so the locale is kept.
+Yeni sayfa eklemek: `src/app/[locale]/<ingilizce-rota>/page.tsx` dosyasını oluştur, metinlerini hem `messages/tr.json` hem `messages/en.json` dosyasına yaz ve linklerde `next/link` yerine `@/i18n/navigation` içindeki `Link`'i kullan (böylece dil korunur).
 
-## Environment variables
+## Ortam değişkenleri
 
-See [`.env.example`](.env.example). Locally they go in `.env.local` (git-ignored); on Vercel they go in **Project → Settings → Environment Variables**. Never commit real keys and never prefix a secret with `NEXT_PUBLIC_`.
+Bkz. [`.env.example`](.env.example). Yerelde `.env.local` dosyasına (git'e girmez), Vercel'de **Project → Settings → Environment Variables** bölümüne yazılır. Gerçek anahtarları asla commit'leme; gizli bir değerin başına asla `NEXT_PUBLIC_` koyma.
 
-## Deployment (Vercel)
+## Yayına alma (Vercel)
 
-Every push to `main` deploys to production automatically; every other branch or pull request gets its own preview URL. The footer of the site shows the live commit (`Live version: abc1234 · <commit message>`), so you can check that your push is live.
+`main` dalına yapılan her push otomatik olarak canlıya çıkar; diğer dallar ve pull request'ler kendi önizleme (preview) adresini alır. Sitenin alt kısmında canlıdaki commit yazar (`Canlı sürüm: abc1234 · <commit mesajı>`); push'unun yayına çıkıp çıkmadığını buradan kontrol edebilirsin.
 
-### One-time setup (with the HoliJoy accounts)
+### Tek seferlik kurulum (HoliJoy hesaplarıyla)
 
-1. **GitHub:** create the repository under the HoliJoy GitHub account/organization and invite the team (Settings → Collaborators).
-2. **Supabase:** sign in with the HoliJoy Google account → New project → name `holijoy`, region **Frankfurt (eu-central-1)**, generate the database password and store it in the team password manager. Then Project Settings → API: copy the **Project URL** and the **publishable (anon) key**.
-3. **Vercel (Hobby, free):** sign up with the HoliJoy GitHub account → Add New → Project → import the repo. Framework is detected automatically. Before deploying, add the two Supabase variables from `.env.example` under Environment Variables. Deploy.
-4. Share the production URL (`https://<project>.vercel.app`) with the team.
+1. **GitHub:** repo HoliJoy GitHub hesabında: [holijoyofficial/HoliJoy](https://github.com/holijoyofficial/HoliJoy). Ekibi davet et (Settings → Collaborators).
+2. **Supabase:** HoliJoy Google hesabıyla giriş yap → New project → adı `holijoy`, bölge **Frankfurt (eu-central-1)**; veritabanı şifresini otomatik oluştur ve ekibin şifre yöneticisine kaydet. Sonra Project Settings → API: **Project URL** ve **publishable (anon) key** değerlerini kopyala.
+3. **Vercel (Hobby, ücretsiz):** HoliJoy GitHub hesabıyla kaydol → Add New → Project → repoyu içe aktar. Framework otomatik algılanır. Yayınlamadan önce `.env.example` içindeki iki Supabase değişkenini Environment Variables'a ekle. Deploy.
+4. Canlı adresi (`https://<proje>.vercel.app`) ekiple paylaş.
 
-> **Vercel Hobby caveats:** the Hobby plan is for non-commercial use (fine for the MVP preview; switch to Pro before taking payments, see [docs/08](docs/08-roadmap.md)). On Hobby, a **private** repo may only auto-deploy commits from the Vercel account owner, and repos owned by a GitHub *organization* may not be importable. If teammates' pushes do not deploy, either make the repo public (no secrets live in the code) or move to Vercel Pro. Check Vercel's current docs when setting this up.
+> **Vercel Hobby uyarıları:** Hobby planı ticari olmayan kullanım içindir (MVP önizlemesi için uygun; ödeme almaya başlamadan önce Pro'ya geçilmeli, bkz. [docs/08](docs/08-roadmap.md)). Hobby'de **private** repoda yalnızca Vercel hesap sahibinin commit'leri otomatik yayına çıkabilir ve bir GitHub *organizasyonuna* ait repolar içe aktarılamayabilir. Ekip arkadaşlarının push'ları yayına çıkmıyorsa ya repoyu public yapın (kodda gizli bilgi yok) ya da Vercel Pro'ya geçin. Kurulum sırasında Vercel'in güncel dokümanlarını kontrol edin.
