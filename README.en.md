@@ -7,11 +7,11 @@ A web marketplace that connects **hotel animators**, **hotels** and **holidaymak
 - Product and technical spec: [`docs/`](docs/README.md)
 - How we write commits and work with Git: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-The site's main language is Turkish (`/tr`, default) with English as second (`/en`). Everything else (code, routes, commits, docs) is in English.
+The site's main language is Turkish (`/tr`, default); English (`/en`) and Russian (`/ru`) are secondary. Everything else (code, routes, commits, docs) is in English.
 
 ## Tech stack
 
-Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl · Supabase · Vercel. Planned: Cloudflare R2, Resend, iyzico. See [docs/05](docs/05-technical-architecture.md).
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl · Supabase · Vercel. Planned: Cloudflare R2, our own SMTP server. No on-site payments (bank transfer). See [docs/05](docs/05-technical-architecture.md).
 
 ## Run it locally
 
@@ -37,9 +37,9 @@ Open http://localhost:3000. You are redirected to http://localhost:3000/tr.
 ## Project structure
 
 ```
-messages/            UI text: tr.json (default), en.json — never hard-code UI strings
+messages/            UI text: tr.json (default), en.json, ru.json — never hard-code UI strings
 src/
-  app/[locale]/      pages; every route lives under /tr or /en
+  app/[locale]/      pages; every route lives under /tr, /en or /ru
   components/        React components (components/ui = shadcn)
   config/app.ts      score weights and limits — the only place to change them
   i18n/              next-intl routing and navigation helpers
@@ -48,7 +48,7 @@ src/
 docs/                product and technical spec
 ```
 
-Adding a page: create `src/app/[locale]/<english-route>/page.tsx`, put its text in both `messages/tr.json` and `messages/en.json`, and use `Link` from `@/i18n/navigation` (not `next/link`) so the locale is kept.
+Adding a page: create `src/app/[locale]/<english-route>/page.tsx`, put its text in `messages/tr.json`, `messages/en.json` and `messages/ru.json`, and use `Link` from `@/i18n/navigation` (not `next/link`) so the locale is kept.
 
 ## Environment variables
 

@@ -7,11 +7,11 @@
 - Ürün ve teknik spec: [`docs/`](docs/README.md) (İngilizce)
 - Commit yazma ve Git ile çalışma kuralları: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-Sitenin ana dili Türkçe (`/tr`, varsayılan), ikinci dili İngilizce (`/en`). Bunun dışındaki her şey (kod, rotalar, commit'ler, dokümanlar) İngilizce.
+Sitenin ana dili Türkçe (`/tr`, varsayılan); İngilizce (`/en`) ve Rusça (`/ru`) ikincil diller. Bunun dışındaki her şey (kod, rotalar, commit'ler, dokümanlar) İngilizce.
 
 ## Teknolojiler
 
-Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl · Supabase · Vercel. Planlanan: Cloudflare R2, Resend, iyzico. Ayrıntı: [docs/05](docs/05-technical-architecture.md).
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl · Supabase · Vercel. Planlanan: Cloudflare R2, kendi SMTP sunucumuz. Sitede ödeme sistemi yok (havale/EFT). Ayrıntı: [docs/05](docs/05-technical-architecture.md).
 
 ## Kendi bilgisayarında çalıştırma
 
@@ -37,9 +37,9 @@ http://localhost:3000 adresini aç; otomatik olarak http://localhost:3000/tr adr
 ## Proje yapısı
 
 ```
-messages/            arayüz metinleri: tr.json (varsayılan), en.json — metinler koda gömülmez
+messages/            arayüz metinleri: tr.json (varsayılan), en.json, ru.json — metinler koda gömülmez
 src/
-  app/[locale]/      sayfalar; her rota /tr veya /en altında
+  app/[locale]/      sayfalar; her rota /tr, /en veya /ru altında
   components/        React bileşenleri (components/ui = shadcn)
   config/app.ts      skor ağırlıkları ve limitler — değiştirilecek tek yer
   i18n/              next-intl yönlendirme ve navigasyon yardımcıları
@@ -48,7 +48,7 @@ src/
 docs/                ürün ve teknik spec
 ```
 
-Yeni sayfa eklemek: `src/app/[locale]/<ingilizce-rota>/page.tsx` dosyasını oluştur, metinlerini hem `messages/tr.json` hem `messages/en.json` dosyasına yaz ve linklerde `next/link` yerine `@/i18n/navigation` içindeki `Link`'i kullan (böylece dil korunur).
+Yeni sayfa eklemek: `src/app/[locale]/<ingilizce-rota>/page.tsx` dosyasını oluştur, metinlerini `messages/tr.json`, `messages/en.json` ve `messages/ru.json` dosyalarının hepsine yaz ve linklerde `next/link` yerine `@/i18n/navigation` içindeki `Link`'i kullan (böylece dil korunur).
 
 ## Ortam değişkenleri
 
