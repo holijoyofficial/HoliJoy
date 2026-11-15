@@ -66,3 +66,5 @@ Bkz. [`.env.example`](.env.example). Yerelde `.env.local` dosyasına (git'e girm
 4. Canlı adresi (`https://<proje>.vercel.app`) ekiple paylaş.
 
 > **Vercel Hobby uyarıları:** Hobby planı ticari olmayan kullanım içindir (MVP önizlemesi için uygun; ödeme almaya başlamadan önce Pro'ya geçilmeli, bkz. [docs/08](docs/08-roadmap.md)). Hobby'de **private** repoda yalnızca Vercel hesap sahibinin commit'leri otomatik yayına çıkabilir ve bir GitHub *organizasyonuna* ait repolar içe aktarılamayabilir. Ekip arkadaşlarının push'ları yayına çıkmıyorsa ya repoyu public yapın (kodda gizli bilgi yok) ya da Vercel Pro'ya geçin. Kurulum sırasında Vercel'in güncel dokümanlarını kontrol edin.
+
+> **`*.vercel.app` bazı Türk internet sağlayıcılarında engelli:** ev internetinde `holijoy.vercel.app` açılmıyor ama mobil veride açılıyorsa sorun bizde değil, sağlayıcı alan adını engelliyor. Çözüm: kendi alan adımızı (domain) Vercel'e bağlamak. O zamana kadar mobil veri ya da Cloudflare WARP (ücretsiz) ile açılabilir.
