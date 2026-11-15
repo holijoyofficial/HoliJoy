@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { Lora, Manrope } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
-const sans = Plus_Jakarta_Sans({
+// Both fonts cover Turkish (latin-ext) and Russian (cyrillic).
+const sans = Manrope({
   variable: "--font-sans",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
 });
 
-const display = Fraunces({
+const display = Lora({
   variable: "--font-display",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
 });
 
 export function generateStaticParams() {

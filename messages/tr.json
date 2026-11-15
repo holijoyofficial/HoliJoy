@@ -1,24 +1,24 @@
 {
   "Metadata": {
     "title": "HoliJoy · Otel animatörlerinin buluşma noktası",
-    "description": "Animatörler, oteller ve tatilciler için güvenilir puan ve yorumlarla çalışan pazar yeri. Çok yakında."
+    "description": "Animatörler, oteller ve tatilciler için misafir yorumlarıyla çalışan pazar yeri. Çok yakında."
   },
   "Home": {
     "badge": "Çok yakında",
     "title": "Otel animasyonunun yıldızlarını bul.",
-    "subtitle": "HoliJoy; animatörlerin itibarını görünür kılar, otelleri ve tatilcileri doğrulanmış puan ve yorumlarla doğru ekiple buluşturur.",
+    "subtitle": "HoliJoy; animatörlerin itibarını misafir yorumlarıyla görünür kılar, otelleri ve tatilcileri doğru ekiple buluşturur.",
     "audiences": {
       "animators": {
         "title": "Animatörler",
-        "body": "Profilini ve showreel'ini oluştur, misafirlerinden QR ile doğrulanmış yorum topla, otellerle doğrudan bağlantı kur."
+        "body": "Profilini ve showreel'ini oluştur, kendi QR kodunla misafirlerinden yorum topla, otellerle WhatsApp üzerinden doğrudan iletişime geç."
       },
       "hotels": {
         "title": "Oteller",
-        "body": "Branşa, dile ve puana göre animatör ara; ekibini onayla, sezon sonunda profesyonel puan ver."
+        "body": "Branşa, dile ve puana göre animatör ara; tek dokunuşla WhatsApp'tan ulaş, ekibini profilinde göster."
       },
       "guests": {
         "title": "Tatilciler",
-        "body": "Otelleri animasyon kalitesine göre karşılaştır, sevdiğin animatörleri takip et."
+        "body": "Üye olmadan, birkaç saniyede sevdiğin animatöre puan ve yorum bırak; otelleri animasyon kalitesine göre karşılaştır."
       }
     },
     "footer": "© {year} HoliJoy"

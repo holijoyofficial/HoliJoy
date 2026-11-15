@@ -1,24 +1,24 @@
 {
   "Metadata": {
     "title": "HoliJoy · Where hotel animators meet",
-    "description": "A marketplace for animators, hotels and holidaymakers, built on trusted ratings and reviews. Coming soon."
+    "description": "A marketplace for animators, hotels and holidaymakers, built on guest reviews. Coming soon."
   },
   "Home": {
     "badge": "Coming soon",
     "title": "Find the stars of hotel entertainment.",
-    "subtitle": "HoliJoy makes animators' reputations visible and connects hotels and holidaymakers with the right team through verified ratings and reviews.",
+    "subtitle": "HoliJoy makes animators' reputations visible through guest reviews and connects hotels and holidaymakers with the right team.",
     "audiences": {
       "animators": {
         "title": "Animators",
-        "body": "Build your profile and showreel, collect QR-verified reviews from guests, and connect with hotels directly."
+        "body": "Build your profile and showreel, collect reviews from guests with your own QR code, and reach hotels directly on WhatsApp."
       },
       "hotels": {
         "title": "Hotels",
-        "body": "Search animators by branch, language and rating; confirm your team and rate them at the end of the season."
+        "body": "Search animators by branch, language and rating; reach them on WhatsApp in one tap and show your team on your profile."
       },
       "guests": {
         "title": "Holidaymakers",
-        "body": "Compare hotels by the quality of their entertainment and follow the animators you love."
+        "body": "Rate and review your favourite animators in seconds, no sign-up needed, and compare hotels by the quality of their entertainment."
       }
     },
     "footer": "© {year} HoliJoy"
