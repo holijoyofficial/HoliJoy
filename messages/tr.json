@@ -37,7 +37,8 @@
     "signUp": "Kayıt ol"
   },
   "Footer": {
-    "copyright": "© {year} HoliJoy"
+    "copyright": "© {year} HoliJoy",
+    "demo": "Demo hesaplar"
   },
   "Errors": {
     "generic": "Bir şeyler ters gitti. Lütfen tekrar dene.",
@@ -108,7 +109,25 @@
   },
   "HotelDashboard": {
     "title": "Otel paneli",
-    "comingSoon": "Otel profili ve ekip yönetimi çok yakında burada olacak."
+    "loading": "Yükleniyor…",
+    "comingSoon": "Otel profili düzenleme, animatör arama ve çalışma onayları W2'de geliyor.",
+    "noHotel": "Hesabın henüz bir otele bağlı değil. Otel başvurusu W2'de eklenecek.",
+    "signedInAs": "{name} olarak giriş yaptın.",
+    "approvedNote": "Onaylı otel olduğun için animatör profillerinde WhatsApp ve Ara butonlarını görürsün.",
+    "team": "Animasyon ekibi",
+    "noTeam": "Henüz ekibinde kimse yok.",
+    "status": {
+      "unverified": "Doğrulanmadı",
+      "pending": "Onay bekliyor",
+      "approved": "Onaylı otel",
+      "rejected": "Reddedildi"
+    },
+    "employment": {
+      "pending": "onay bekliyor",
+      "active": "aktif",
+      "rejected": "reddedildi",
+      "ended": "bitti"
+    }
   },
   "AnimatorDashboard": {
     "title": "Profilim",
@@ -170,5 +189,42 @@
     "reviewCount": "{count, plural, other {# yorum}}",
     "whatsappMessage": "Merhaba {name}, sizi HoliJoy'da gördüm.",
     "call": "Ara"
+  },
+  "Demo": {
+    "badge": "Yalnızca ekip için",
+    "title": "Demo hesaplar",
+    "subtitle": "Rolleri tek tıkla dene. Her buton seni o rolle giriş yapmış şekilde ilgili panele götürür; başka role geçmek için bu sayfaya geri dön.",
+    "animator": {
+      "title": "Animatör",
+      "account": "Deniz Demo · demo-animator@holijoy.test",
+      "checks": [
+        "Profilini düzenle ve kaydet",
+        "“Profilimi gör” ile herkese açık sayfana bak",
+        "Kendi WhatsApp numaranı görebilirsin (sahibi olduğun için)"
+      ],
+      "button": "Animatör olarak gir"
+    },
+    "hotel": {
+      "title": "Otel",
+      "account": "HoliJoy Demo Resort (onaylı) · demo-hotel@holijoy.test",
+      "checks": [
+        "Otel panelinde otel bilgisi ve ekibi gör",
+        "Ekipteki Deniz Demo'ya tıkla: WhatsApp ve Ara butonları görünür",
+        "Onaylı otel olduğun için animatör numaralarını görebilirsin"
+      ],
+      "button": "Otel olarak gir"
+    },
+    "guest": {
+      "title": "Misafir (giriş yok)",
+      "account": "Hesap yok, tatilci gibi gezer",
+      "checks": [
+        "Animatör profillerini ve puanları görür",
+        "WhatsApp / telefon numaralarını göremez",
+        "Yorum formu W3'te gelecek"
+      ],
+      "button": "Çıkış yap ve misafir gibi gez"
+    },
+    "profileLink": "Demo animatör profili:",
+    "warning": "Bu sayfa DEMO_MODE açıkken çalışır ve lansmandan önce kapatılacak. Demo hesaplardaki veriler gerçek değildir."
   }
 }

@@ -13,6 +13,10 @@ The deadline moved up from February 2027 to **mid-December 2026** (decided 15 No
 
 **In parallel:** the marketing team gets animator and hotel profiles ready before launch (target this week: 20 animators collected by Alper).
 
+### Launch checklist
+- Set `DEMO_MODE` to `false` in Vercel and delete the demo/test accounts ("Deniz Demo", "HoliJoy Demo Resort", "Ayşe Test Çelik") — the demo hotel can see every animator's phone number
+- Own SMTP connected to Supabase Auth (until then confirmation emails do not reach real users)
+
 ### Definition of done for every week
 - Features work in TR + EN + RU
 - Tested on mobile (375 px) and desktop

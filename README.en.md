@@ -10,6 +10,18 @@ A web marketplace that connects **hotel animators**, **hotels** and **holidaymak
 
 The site's main language is Turkish (`/tr`, default); English (`/en`) and Russian (`/ru`) are secondary. Everything else (code, routes, commits, docs) is in English.
 
+## Demo accounts (to try the roles)
+
+One-click login at **https://holijoy.soluiton.com/en/demo** (also linked as "Demo accounts" in the footer):
+
+| Role | Account | What you see |
+|---|---|---|
+| Animator | Deniz Demo | Profile editor, own WhatsApp number |
+| Hotel | HoliJoy Demo Resort (approved) | Hotel dashboard, team; WhatsApp / Call buttons on animator profiles |
+| Guest | not logged in | Profiles and ratings; phone numbers hidden |
+
+No passwords needed; the page logs in on the server. Works while `DEMO_MODE=true`; **turn it off in Vercel before launch.**
+
 ## Tech stack
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl · Supabase · Vercel. Planned: Cloudflare R2, our own SMTP server. No on-site payments (bank transfer). See [docs/05](docs/05-technical-architecture.md).

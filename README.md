@@ -10,6 +10,18 @@
 
 Sitenin ana dili Türkçe (`/tr`, varsayılan); İngilizce (`/en`) ve Rusça (`/ru`) ikincil diller. Bunun dışındaki her şey (kod, rotalar, commit'ler, dokümanlar) İngilizce.
 
+## Demo hesaplar (rolleri denemek için)
+
+**https://holijoy.soluiton.com/tr/demo** sayfasından tek tıkla giriş yap (sitenin altında "Demo hesaplar" linki de var):
+
+| Rol | Hesap | Ne görürsün |
+|---|---|---|
+| Animatör | Deniz Demo | Profil düzenleme, kendi WhatsApp numarası |
+| Otel | HoliJoy Demo Resort (onaylı) | Otel paneli, ekip; animatör profillerinde WhatsApp / Ara butonları |
+| Misafir | giriş yok | Profiller ve puanlar; telefon numaraları gizli |
+
+Şifreler gerekmez; sayfa sunucuda giriş yapar. `DEMO_MODE=true` iken çalışır, **lansmandan önce Vercel'de kapatılacak.**
+
 ## Teknolojiler
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl · Supabase · Vercel. Planlanan: Cloudflare R2, kendi SMTP sunucumuz. Sitede ödeme sistemi yok (havale/EFT). Ayrıntı: [docs/05](docs/05-technical-architecture.md).

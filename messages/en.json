@@ -37,7 +37,8 @@
     "signUp": "Sign up"
   },
   "Footer": {
-    "copyright": "© {year} HoliJoy"
+    "copyright": "© {year} HoliJoy",
+    "demo": "Demo accounts"
   },
   "Errors": {
     "generic": "Something went wrong. Please try again.",
@@ -108,7 +109,25 @@
   },
   "HotelDashboard": {
     "title": "Hotel dashboard",
-    "comingSoon": "Hotel profile and team management are coming here soon."
+    "loading": "Loading…",
+    "comingSoon": "Hotel profile editing, animator search and employment confirmations are coming in W2.",
+    "noHotel": "Your account is not linked to a hotel yet. Hotel applications are coming in W2.",
+    "signedInAs": "Logged in as {name}.",
+    "approvedNote": "As an approved hotel you see WhatsApp and Call buttons on animator profiles.",
+    "team": "Animation team",
+    "noTeam": "Nobody in your team yet.",
+    "status": {
+      "unverified": "Not verified",
+      "pending": "Awaiting approval",
+      "approved": "Verified hotel",
+      "rejected": "Rejected"
+    },
+    "employment": {
+      "pending": "awaiting confirmation",
+      "active": "active",
+      "rejected": "rejected",
+      "ended": "ended"
+    }
   },
   "AnimatorDashboard": {
     "title": "My profile",
@@ -170,5 +189,42 @@
     "reviewCount": "{count, plural, one {# review} other {# reviews}}",
     "whatsappMessage": "Hi {name}, I found you on HoliJoy.",
     "call": "Call"
+  },
+  "Demo": {
+    "badge": "Team only",
+    "title": "Demo accounts",
+    "subtitle": "Try each role with one click. Every button logs you in as that role and opens its dashboard; come back here to switch roles.",
+    "animator": {
+      "title": "Animator",
+      "account": "Deniz Demo · demo-animator@holijoy.test",
+      "checks": [
+        "Edit and save the profile",
+        "Open the public page with “View my profile”",
+        "You can see your own WhatsApp number (you are the owner)"
+      ],
+      "button": "Log in as animator"
+    },
+    "hotel": {
+      "title": "Hotel",
+      "account": "HoliJoy Demo Resort (approved) · demo-hotel@holijoy.test",
+      "checks": [
+        "See the hotel details and team on the hotel dashboard",
+        "Open Deniz Demo from the team: WhatsApp and Call buttons appear",
+        "As an approved hotel you can see animators' numbers"
+      ],
+      "button": "Log in as hotel"
+    },
+    "guest": {
+      "title": "Guest (no login)",
+      "account": "No account, browses like a holidaymaker",
+      "checks": [
+        "Sees animator profiles and ratings",
+        "Cannot see WhatsApp / phone numbers",
+        "The review form comes in W3"
+      ],
+      "button": "Log out and browse as a guest"
+    },
+    "profileLink": "Demo animator profile:",
+    "warning": "This page only works while DEMO_MODE is on and will be turned off before launch. Data in the demo accounts is not real."
   }
 }

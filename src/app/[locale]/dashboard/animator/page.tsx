@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buttonVariants } from "@/components/ui/button";
 import { Link, redirect } from "@/i18n/navigation";
 import { getMyAnimator } from "@/lib/animators";
+import { getCurrentUser } from "@/lib/auth";
 import { ProfileForm } from "./profile-form";
 
 export async function generateMetadata({
@@ -31,7 +32,8 @@ export default async function AnimatorDashboardPage({ params }: PageProps<"/[loc
 
 async function AnimatorProfileEditor({ locale }: { locale: string }) {
   const animator = await getMyAnimator();
-  if (!animator) redirect({ href: "/login", locale });
+  // Logged in with another role → their own dashboard; logged out → login
+  if (!animator) redirect({ href: (await getCurrentUser()) ? "/dashboard" : "/login", locale });
   const a = animator!;
   const t = await getTranslations("AnimatorDashboard");
 
