@@ -1,19 +1,27 @@
 # 03 · Trust and Scoring
 
-## One score: the guest rating
-- Only guests rate animators. **Hotels do not rate or review animators.**
-- Every review is the same: a short form, no login — email, first name, last name, country, rating (1–5), comment
+## Two scores: guest score and hotel score
+
+### Guest score
+- Guests rate animators with a short form, no login — email, first name, last name, country, rating (1–5), comment
 - **No weighting and no verification levels.** Every review counts the same, whether it came through the QR code or the profile page
 - One review per email per animator every 30 days
-- The animator can reply once to each review
 
-### Score shown on the profile
-```
-score = average of all visible ratings (1 decimal)
-```
-Shown as: `4.8 · 23 reviews`. Hidden/removed reviews do not count.
+### Hotel score (decided 16 Nov 2026)
+- Hotel staff rate an animator with **only a rating (1–5) and a comment** — no extra criteria questions
+- Only for an employment the hotel confirmed (`active` or `ended`); **one review per employment**, i.e. once per animator per season at that hotel
+- The hotel can edit its own review; admins moderate it like guest reviews
 
-Scores are cached in the `animator_scores` table and recalculated by a database function on every review insert/delete/moderation.
+Both review types: the animator can reply once to each review.
+
+### Scores shown on the profile
+```
+guest score = average of visible guest ratings (1 decimal)
+hotel score = average of visible hotel ratings (1 decimal)
+```
+Shown separately, e.g. `Guests ★ 4.8 · 23 reviews` and `Hotels ★ 4.5 · 3 reviews`. Hidden/removed reviews do not count.
+
+Both are cached in the `animator_scores` table and recalculated by database triggers on every insert/update/delete/moderation.
 
 ### Hotel animation score
 Average rating of the reviews of the hotel's `active` team this season. The "by animation" sort on the hotels page uses this.
@@ -39,7 +47,7 @@ Default "Recommended":
 
 | Component | Weight |
 |---|---|
-| Rating (average, only counted from 3 reviews up) | 60% |
+| Rating: guest score and hotel score combined (each counted only from 3 reviews up) | 60% |
 | Activity (content in the last 90 days) | 20% |
 | Profile completeness and verification | 20% |
 
@@ -57,7 +65,8 @@ Users can also pick "Highest rated", "Most reviewed", "Newest". No sorting by lo
 | Hotel | Corporate email, authorization document (no tax number) | Admin | Verified hotel |
 | Animator | Email verification (mandatory at sign-up) | System + admin | — |
 | Employment | Animator declaration + hotel confirmation | Hotel; disputes go to admin | Hotel confirmed |
-| Review | None (open form) | Moderated by admin | — |
+| Guest review | None (open form) | Moderated by admin | — |
+| Hotel review | Confirmed employment at that hotel | System; moderated by admin | — |
 
 - No SMS verification; no ID documents from animators.
 - Hotel authorization documents are **deleted within 30 days** after approval; only "approved, date, approving admin" is kept.

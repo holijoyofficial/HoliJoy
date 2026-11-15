@@ -8,7 +8,7 @@ The deadline moved up from February 2027 to **mid-December 2026** (decided 15 No
 |---|---|---|
 | W1 | 16–22 Nov | Database schema + RLS, animator/hotel sign-up with email verification, animator profile (edit + public page), TR/EN/RU skeleton |
 | W2 | 23–29 Nov | Hotel profile, admin verification queue (hotels, animators), animators/hotels listing with search and filters, WhatsApp / call buttons |
-| W3 | 30 Nov–6 Dec | Guest review form + permanent QR code, score calculation, employment records (declare/confirm), media upload (R2) |
+| W3 | 30 Nov–6 Dec | Guest review form + permanent QR code, hotel rating + comment, score calculation, employment records (declare/confirm), media upload (R2) |
 | W4 | 7–14 Dec | Admin moderation + manual boost activation, pricing page with bank details, legal pages (KVKK), SEO basics, bug fixing, launch |
 
 **In parallel:** the marketing team gets animator and hotel profiles ready before launch (target this week: 20 animators collected by Alper).
@@ -35,7 +35,7 @@ The deadline moved up from February 2027 to **mid-December 2026** (decided 15 No
 ## Deliberately not building
 - Guest accounts, following animators
 - In-site messaging (WhatsApp / phone instead)
-- Hotel reviews of animators, weighted reviews
+- Weighted reviews, extra criteria questions in hotel reviews
 - Payment gateway (bank transfer instead)
 - Explore / feed page
 - Contract, salary, social security management (we are not an agency)

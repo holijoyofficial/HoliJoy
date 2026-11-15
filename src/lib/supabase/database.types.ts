@@ -31,14 +31,14 @@ isOneToOne: true
                   ]
                 },"animator_scores": {
                   Row: {
-                    "animator_id": string,"ranking_score": number | null,"rating_avg": number | null,"rating_count": number,"updated_at": string
+                    "animator_id": string,"hotel_rating_avg": number | null,"hotel_rating_count": number,"ranking_score": number | null,"rating_avg": number | null,"rating_count": number,"updated_at": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "animator_id": string,"ranking_score"?: number | null,"rating_avg"?: number | null,"rating_count"?: number,"updated_at"?: string
+                    "animator_id": string,"hotel_rating_avg"?: number | null,"hotel_rating_count"?: number,"ranking_score"?: number | null,"rating_avg"?: number | null,"rating_count"?: number,"updated_at"?: string
                   }
                   Update: {
-                    "animator_id"?: string,"ranking_score"?: number | null,"rating_avg"?: number | null,"rating_count"?: number,"updated_at"?: string
+                    "animator_id"?: string,"hotel_rating_avg"?: number | null,"hotel_rating_count"?: number,"ranking_score"?: number | null,"rating_avg"?: number | null,"rating_count"?: number,"updated_at"?: string
                   }
                   Relationships: [
                     {
@@ -215,6 +215,44 @@ isOneToOne: false
       foreignKeyName: "hotel_private_hotel_id_fkey"
       columns: ["hotel_id"]
 isOneToOne: true
+      referencedRelation: "hotels"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"hotel_reviews": {
+                  Row: {
+                    "animator_id": string,"author_profile_id": string | null,"body": string,"created_at": string,"employment_id": string,"hotel_id": string,"id": string,"rating": number,"reply_at": string | null,"reply_body": string | null,"status": Database["public"]['Enums']["content_status"],"updated_at": string
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "animator_id": string,"author_profile_id"?: string | null,"body"?: string,"created_at"?: string,"employment_id": string,"hotel_id": string,"id"?: string,"rating": number,"reply_at"?: string | null,"reply_body"?: string | null,"status"?: Database["public"]['Enums']["content_status"],"updated_at"?: string
+                  }
+                  Update: {
+                    "animator_id"?: string,"author_profile_id"?: string | null,"body"?: string,"created_at"?: string,"employment_id"?: string,"hotel_id"?: string,"id"?: string,"rating"?: number,"reply_at"?: string | null,"reply_body"?: string | null,"status"?: Database["public"]['Enums']["content_status"],"updated_at"?: string
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "hotel_reviews_animator_id_fkey"
+      columns: ["animator_id"]
+isOneToOne: false
+      referencedRelation: "animators"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "hotel_reviews_author_profile_id_fkey"
+      columns: ["author_profile_id"]
+isOneToOne: false
+      referencedRelation: "profiles"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "hotel_reviews_employment_id_fkey"
+      columns: ["employment_id"]
+isOneToOne: true
+      referencedRelation: "employments"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "hotel_reviews_hotel_id_fkey"
+      columns: ["hotel_id"]
+isOneToOne: false
       referencedRelation: "hotels"
       referencedColumns: ["id"]
     }

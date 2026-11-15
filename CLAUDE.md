@@ -15,7 +15,7 @@ Core rules:
 - **Everything in the repo is English**: routes, identifiers, file names, commit messages, PRs, docs. Exceptions: the site's UI (Turkish is the default locale `tr`; English `en` and Russian `ru` are secondary) and `README.md`, which is Turkish for the team on GitHub (`README.en.md` is the English copy; keep both in sync).
 - Commits follow Conventional Commits in clear English (see `CONTRIBUTING.md`); the PM reads the history to follow progress.
 - Stack: Next.js 16 (App Router) + TypeScript, Tailwind + shadcn/ui, next-intl (TR/EN/RU), Supabase, Cloudflare R2, own SMTP server (later). No payment gateway, no Turnstile, no custom rate limiting, no in-site messaging (WhatsApp/phone links instead).
-- Guests never log in: reviews are a single form (email, first/last name, country, rating, comment), all weighted equally. Hotels do not review animators. Each animator has one permanent QR code (`/q/[code]`).
+- Guests never log in: reviews are a single form (email, first/last name, country, rating, comment), all weighted equally. Hotels rate animators they confirmed working with: rating + comment only, once per season, shown as a separate hotel score. Each animator has one permanent QR code (`/q/[code]`).
 - Next.js 16 has breaking changes (e.g. `middleware` is now `proxy`); read `node_modules/next/dist/docs/` before using an API you are unsure about (see `AGENTS.md`).
 - Boost never changes a score or the organic ranking.
 - UI text lives in `messages/*.json` (add every key to tr, en and ru); score weights and limits live in `src/config/app.ts`.

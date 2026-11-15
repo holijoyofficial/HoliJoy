@@ -59,8 +59,13 @@ Created automatically with `animator_private` and `animator_scores` rows by the 
 ### review_private
 `review_id (pk)`, `guest_email`, `guest_last_name` — admins only
 
+### hotel_reviews (hotel staff, added 16 Nov 2026)
+`animator_id`, `hotel_id`, `employment_id (unique)`, `author_profile_id`, `rating smallint (1–5)`, `body text`, `status content_status`, `reply_body`, `reply_at`
+- Only for an `active` or `ended` employment of that hotel and animator (trigger); one per employment
+- Written by hotel members; the animator may only reply, once; admins moderate
+
 ### animator_scores (cache)
-`animator_id (pk)`, `rating_avg`, `rating_count`, `ranking_score`, `updated_at` — updated by a reviews trigger
+`animator_id (pk)`, `rating_avg`, `rating_count` (guest score), `hotel_rating_avg`, `hotel_rating_count` (hotel score), `ranking_score`, `updated_at` — updated by review triggers
 
 ### media
 `animator_id`, `kind media_kind`, `r2_key`, `width`, `height`, `duration_s`, `position`, `status ('uploading'|'ready'|'hidden')`
@@ -86,7 +91,7 @@ Created automatically with `animator_private` and `animator_scores` rows by the 
 ### outbound_clicks
 `hotel_id`, `source ('hotel_page'|'animator_page')`, `session_hash` — booking click report
 
-Removed after the 15 Nov 2026 revisions: `qr_tokens`, `contact_requests`, `messages`, `payments`, `follows` (guests have no accounts), hotel reviews, review weights and verification levels.
+Removed after the 15 Nov 2026 revisions: `qr_tokens`, `contact_requests`, `messages`, `payments`, `follows` (guests have no accounts), review weights and verification levels. Hotel reviews were removed on 15 Nov and brought back on 16 Nov as rating + comment only.
 
 ## RLS summary
 
@@ -96,7 +101,8 @@ Removed after the 15 Nov 2026 revisions: `qr_tokens`, `contact_requests`, `messa
 | animators.whatsapp_phone | Approved hotel members (via view/function) | Owner |
 | hotels.whatsapp_phone | Logged-in animators (via view/function) | Hotel members |
 | employments | Everyone (active/ended), the parties (pending) | Animator creates; only a member of the hotel changes status |
-| reviews (full row incl. email) | Admin only | Insert via Server Action (no login); animator writes `reply_*` only |
+| reviews (guest) | Everyone (visible) | Only via `submit_review()` (no login); animator writes `reply_*` only |
+| hotel_reviews | Everyone (visible) | Members of the hotel with a confirmed employment; animator writes `reply_*` only |
 | contact_clicks, outbound_clicks | Admin; owner sees own stats | Server Action |
 | notifications | Owner | Server only |
 | verifications, reports, boosts | Owner (own rows), admin | Server Action / admin |

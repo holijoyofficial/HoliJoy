@@ -11,9 +11,9 @@ A marketplace that makes a hotel animator's reputation visible, and connects hot
 | Market and language | Animators from Turkey first (foreigners welcome); guests domestic + international; UI **TR (main) + EN + RU** at launch, more languages later |
 | Revenue | Animator boost/premium + featured hotel. **No on-site payments:** buyers pay by bank transfer to the company account shown on the site; an admin activates the boost manually |
 | Guests | **No account needed.** Browse freely; leave a review through a short form (email, first and last name, country, rating, comment). Bookings happen on the hotel's own website |
-| Reviews | Only guests review animators. Every review works the same way: one form, no login, **no weighting**. Hotels do not rate animators |
+| Reviews | **Guests:** one form, no login, **no weighting**. **Hotels:** a rating (1–5) + comment for an animator they confirmed working with, once per season — no extra criteria questions |
 | QR | One **permanent** QR code per animator profile, generated once and never rotated. It opens that animator's review form. Hotels do not print QR codes |
-| Score | One score per animator: the plain average of guest ratings + review count |
+| Score | Two separate scores per animator: **guest score** and **hotel score**, each the plain average of its ratings + review count |
 | Contact | **No in-site messaging.** Hotels and animators contact each other through WhatsApp and phone-call buttons |
 | Matching | Animators page + hotels page; both sides search for and contact each other |
 | Content | Animators share photos/videos on their own profile; **no explore/feed page** |
@@ -40,7 +40,7 @@ A marketplace that makes a hotel animator's reputation visible, and connects hot
 - Searches, filters and saves animators; contacts them via WhatsApp / phone
 - Confirms their team's employment declarations
 - Can become a featured hotel (enabled by admin)
-- **Does not rate or review animators**
+- Rates and reviews animators who worked at the hotel (rating + comment, once per season)
 
 ### Guest (holidaymaker, no account)
 - Browses profiles, hotels and reviews (also required for SEO)

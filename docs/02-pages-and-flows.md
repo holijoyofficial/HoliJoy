@@ -24,7 +24,7 @@ All URLs start with a locale prefix: `/tr/...` (default), `/en/...`, `/ru/...`. 
 Edit profile · Media gallery · Work history · Reviews and replies · My QR code (show full screen, download as PNG for printing/sharing) · Boost (how to buy, current status) · Account settings
 
 ### Hotel dashboard (`/dashboard/hotel/...`)
-Hotel profile · Team and confirmations · Search and save animators · Click stats · Featured listing · Users (staff accounts)
+Hotel profile · Team and confirmations · Rate animators (rating + comment) · Search and save animators · Click stats · Featured listing · Users (staff accounts)
 
 ### Admin (`/admin/...`)
 Verification queues · Moderation (reviews, media) · Users · Boosts (manual activation after bank transfer) · Featured listings · Audit log
@@ -40,7 +40,7 @@ There are no guest accounts in the MVP, so no `/account` area.
 - **Media:** photo + short video gallery; one video can be pinned as the "showreel"
 - **Social:** Instagram / TikTok link
 - **Contact:** WhatsApp number (also used for "Call"); see contact visibility below
-- **Score:** average guest rating + number of reviews
+- **Scores:** guest score and hotel score, shown separately with their review counts
 - **Currently:** if there is an active employment record, "Currently: [Hotel], [Region] · hotel confirmed"
 - **Buttons:** WhatsApp, Call (for logged-in hotels), Leave a review (everyone)
 
@@ -83,7 +83,7 @@ pending --hotel rejects--> rejected (removed from profile)
 | Event | To |
 |---|---|
 | Employment declaration awaiting confirmation | Hotel |
-| New review | Animator |
+| New guest or hotel review | Animator |
 | Verification result | Animator, hotel |
 | Boost activated / about to expire (3 days left) | Animator |
 

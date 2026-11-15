@@ -4,16 +4,17 @@
 // Rule: boosts NEVER change scores or organic ranking.
 
 export const scoring = {
-  // Animator score = plain average of visible guest ratings (no weighting).
+  // Guest score and hotel score are each the plain average of their visible
+  // ratings (no weighting); they are shown separately.
   ratingScale: { min: 1, max: 5 },
 
   // Default "Recommended" search ranking (must add up to 1)
   ranking: {
-    rating: 0.6,
+    rating: 0.6, // guest + hotel score combined
     activity: 0.2, // content in the last 90 days
     profileCompleteness: 0.2,
   },
-  // Below this many reviews the rating does not count towards ranking
+  // Below this many reviews a score does not count towards ranking
   minReviewsForRanking: 3,
   activityWindowDays: 90,
 } as const;
