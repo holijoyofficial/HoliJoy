@@ -21,7 +21,7 @@
         "body": "Rate and review your favourite animators in seconds, no sign-up needed, and compare hotels by the quality of their entertainment."
       }
     },
-    "footer": "© {year} HoliJoy"
+    "ctaSignUp": "Join as an animator or hotel"
   },
   "LocaleSwitcher": {
     "label": "Choose language"
@@ -29,5 +29,146 @@
   "DeployInfo": {
     "local": "Local development",
     "live": "Live version: {sha}"
+  },
+  "Nav": {
+    "dashboard": "Dashboard",
+    "logOut": "Log out",
+    "logIn": "Log in",
+    "signUp": "Sign up"
+  },
+  "Footer": {
+    "copyright": "© {year} HoliJoy"
+  },
+  "Errors": {
+    "generic": "Something went wrong. Please try again.",
+    "fixErrors": "Please fix the highlighted fields.",
+    "notAllowed": "You are not allowed to do this.",
+    "invalidEmail": "Enter a valid email address.",
+    "passwordRequired": "Enter your password.",
+    "passwordTooShort": "The password must be at least 8 characters.",
+    "passwordTooLong": "The password can be at most 72 characters.",
+    "passwordNeedsLetter": "The password needs at least one letter.",
+    "passwordNeedsDigit": "The password needs at least one number.",
+    "passwordWeak": "This password is too weak, please choose a stronger one.",
+    "roleRequired": "Choose whether you are an animator or a hotel.",
+    "nameTooShort": "The name must be at least 2 characters.",
+    "nameTooLong": "The name can be at most 80 characters.",
+    "termsRequired": "You need to accept the terms to continue.",
+    "tooManyEmails": "Too many emails were sent. Please try again in a few minutes.",
+    "emailNotConfirmed": "Please confirm your email address first. Check your inbox.",
+    "invalidCredentials": "Wrong email or password.",
+    "linkError": "This link is invalid or has expired. Try logging in; if that fails, sign up again.",
+    "bioTooLong": "The bio can be at most 1500 characters.",
+    "invalidUrl": "Enter a valid link.",
+    "outOfRange": "Enter a valid number.",
+    "invalidDate": "Enter a valid date.",
+    "invalidPhone": "Enter the number with the country code, e.g. +90 555 111 22 33.",
+    "dateOrder": "The end date cannot be before the start date."
+  },
+  "SignUp": {
+    "title": "Sign up",
+    "subtitle": "Create your profile on HoliJoy.",
+    "roleLabel": "Who are you joining as?",
+    "roles": {
+      "animator": {
+        "title": "Animator",
+        "body": "Build your profile and showreel, collect reviews from guests."
+      },
+      "hotel_staff": {
+        "title": "Hotel",
+        "body": "Find animators and manage your team. Hotel profiles are approved by an admin."
+      }
+    },
+    "guestNote": "On holiday? You don't need an account to leave a review.",
+    "displayName": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 8 characters, with letters and numbers.",
+    "acceptTerms": "I have read and accept the terms of use and the privacy notice.",
+    "submit": "Create account",
+    "submitting": "Creating…",
+    "haveAccount": "Already have an account?",
+    "logInLink": "Log in",
+    "checkEmailTitle": "Check your email",
+    "checkEmailBody": "We sent a confirmation link to {email}. Click it to activate your account. If it doesn't arrive, check your spam folder."
+  },
+  "LogIn": {
+    "title": "Log in",
+    "subtitle": "For animator and hotel accounts.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Log in",
+    "submitting": "Logging in…",
+    "noAccount": "No account yet?",
+    "signUpLink": "Sign up",
+    "confirmedNotice": "Your email is confirmed. You can log in now."
+  },
+  "Dashboard": {
+    "loading": "Loading…"
+  },
+  "HotelDashboard": {
+    "title": "Hotel dashboard",
+    "comingSoon": "Hotel profile and team management are coming here soon."
+  },
+  "AnimatorDashboard": {
+    "title": "My profile",
+    "subtitle": "Hotels and guests see this information.",
+    "loading": "Loading profile…",
+    "viewPublic": "View my profile"
+  },
+  "AnimatorProfileForm": {
+    "sections": {
+      "basics": "Basics",
+      "branches": "Branches",
+      "languages": "Languages",
+      "availability": "Availability",
+      "contact": "Contact and social media"
+    },
+    "displayName": "Full name",
+    "city": "City",
+    "birthYear": "Year of birth",
+    "experienceYears": "Experience (years)",
+    "bio": "About me",
+    "bioHint": "Describe yourself in a few sentences. It is shown in the language you write it in.",
+    "seekingJob": "I'm looking for a job",
+    "availableFrom": "From",
+    "availableTo": "To",
+    "whatsappPhone": "WhatsApp number",
+    "whatsappHint": "Only shown to approved hotels, never to guests.",
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved."
+  },
+  "Branches": {
+    "chief": "Chief animator",
+    "mini_club": "Mini club",
+    "show": "Stage / show",
+    "dance": "Dance",
+    "fitness": "Fitness / aerobics",
+    "sports": "Sports",
+    "dj": "DJ",
+    "theatre": "Theatre",
+    "host": "Host",
+    "tech": "Sound & light"
+  },
+  "LanguageLevels": {
+    "basic": "Basic",
+    "good": "Good",
+    "fluent": "Fluent"
+  },
+  "AnimatorPage": {
+    "metaDescription": "{name} — hotel animator profile on HoliJoy.",
+    "experience": "{years, plural, =0 {New} one {# year of experience} other {# years of experience}}",
+    "seekingJob": "Looking for a job",
+    "about": "About",
+    "branches": "Branches",
+    "languages": "Languages",
+    "availability": "Availability",
+    "reviews": "Guest reviews",
+    "reviewsComingSoon": "Reviews will appear here soon.",
+    "noReviews": "No reviews yet",
+    "reviewCount": "{count, plural, one {# review} other {# reviews}}",
+    "whatsappMessage": "Hi {name}, I found you on HoliJoy.",
+    "call": "Call"
   }
 }

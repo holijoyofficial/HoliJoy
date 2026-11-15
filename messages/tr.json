@@ -21,7 +21,7 @@
         "body": "Üye olmadan, birkaç saniyede sevdiğin animatöre puan ve yorum bırak; otelleri animasyon kalitesine göre karşılaştır."
       }
     },
-    "footer": "© {year} HoliJoy"
+    "ctaSignUp": "Animatör ya da otel olarak katıl"
   },
   "LocaleSwitcher": {
     "label": "Dil seçimi"
@@ -29,5 +29,146 @@
   "DeployInfo": {
     "local": "Yerel geliştirme",
     "live": "Canlı sürüm: {sha}"
+  },
+  "Nav": {
+    "dashboard": "Panelim",
+    "logOut": "Çıkış",
+    "logIn": "Giriş yap",
+    "signUp": "Kayıt ol"
+  },
+  "Footer": {
+    "copyright": "© {year} HoliJoy"
+  },
+  "Errors": {
+    "generic": "Bir şeyler ters gitti. Lütfen tekrar dene.",
+    "fixErrors": "Lütfen işaretli alanları düzelt.",
+    "notAllowed": "Bu işlem için yetkin yok.",
+    "invalidEmail": "Geçerli bir e-posta adresi gir.",
+    "passwordRequired": "Şifreni gir.",
+    "passwordTooShort": "Şifre en az 8 karakter olmalı.",
+    "passwordTooLong": "Şifre en fazla 72 karakter olabilir.",
+    "passwordNeedsLetter": "Şifrede en az bir harf olmalı.",
+    "passwordNeedsDigit": "Şifrede en az bir rakam olmalı.",
+    "passwordWeak": "Bu şifre çok zayıf, daha güçlü bir şifre seç.",
+    "roleRequired": "Animatör mü yoksa otel mi olduğunu seç.",
+    "nameTooShort": "İsim en az 2 karakter olmalı.",
+    "nameTooLong": "İsim en fazla 80 karakter olabilir.",
+    "termsRequired": "Devam etmek için koşulları kabul etmelisin.",
+    "tooManyEmails": "Çok fazla e-posta gönderildi. Birkaç dakika sonra tekrar dene.",
+    "emailNotConfirmed": "Önce e-posta adresini doğrulaman gerekiyor. Gelen kutunu kontrol et.",
+    "invalidCredentials": "E-posta ya da şifre hatalı.",
+    "linkError": "Bağlantı geçersiz ya da süresi dolmuş. Giriş yapmayı dene; olmazsa tekrar kayıt ol.",
+    "bioTooLong": "Biyografi en fazla 1500 karakter olabilir.",
+    "invalidUrl": "Geçerli bir bağlantı gir.",
+    "outOfRange": "Geçerli bir sayı gir.",
+    "invalidDate": "Geçerli bir tarih gir.",
+    "invalidPhone": "Numarayı ülke koduyla gir, örn. +90 555 111 22 33.",
+    "dateOrder": "Bitiş tarihi başlangıçtan önce olamaz."
+  },
+  "SignUp": {
+    "title": "Kayıt ol",
+    "subtitle": "HoliJoy'da profilini oluştur.",
+    "roleLabel": "Kim olarak katılıyorsun?",
+    "roles": {
+      "animator": {
+        "title": "Animatör",
+        "body": "Profil ve showreel oluştur, misafirlerinden yorum topla."
+      },
+      "hotel_staff": {
+        "title": "Otel",
+        "body": "Animatör bul, ekibini yönet. Otel profili admin onayından geçer."
+      }
+    },
+    "guestNote": "Tatilci misin? Yorum bırakmak için hesap açmana gerek yok.",
+    "displayName": "Ad soyad",
+    "email": "E-posta",
+    "password": "Şifre",
+    "passwordHint": "En az 8 karakter, harf ve rakam içermeli.",
+    "acceptTerms": "Kullanım koşullarını ve KVKK aydınlatma metnini okudum, kabul ediyorum.",
+    "submit": "Hesap oluştur",
+    "submitting": "Oluşturuluyor…",
+    "haveAccount": "Zaten hesabın var mı?",
+    "logInLink": "Giriş yap",
+    "checkEmailTitle": "E-postanı kontrol et",
+    "checkEmailBody": "{email} adresine bir doğrulama bağlantısı gönderdik. Hesabını etkinleştirmek için bağlantıya tıkla. Gelmediyse spam klasörüne bak."
+  },
+  "LogIn": {
+    "title": "Giriş yap",
+    "subtitle": "Animatör ve otel hesapları için.",
+    "email": "E-posta",
+    "password": "Şifre",
+    "submit": "Giriş yap",
+    "submitting": "Giriş yapılıyor…",
+    "noAccount": "Hesabın yok mu?",
+    "signUpLink": "Kayıt ol",
+    "confirmedNotice": "E-posta adresin doğrulandı. Şimdi giriş yapabilirsin."
+  },
+  "Dashboard": {
+    "loading": "Yükleniyor…"
+  },
+  "HotelDashboard": {
+    "title": "Otel paneli",
+    "comingSoon": "Otel profili ve ekip yönetimi çok yakında burada olacak."
+  },
+  "AnimatorDashboard": {
+    "title": "Profilim",
+    "subtitle": "Oteller ve misafirler bu bilgileri görür.",
+    "loading": "Profil yükleniyor…",
+    "viewPublic": "Profilimi gör"
+  },
+  "AnimatorProfileForm": {
+    "sections": {
+      "basics": "Temel bilgiler",
+      "branches": "Branşlar",
+      "languages": "Diller",
+      "availability": "Müsaitlik",
+      "contact": "İletişim ve sosyal medya"
+    },
+    "displayName": "Ad soyad",
+    "city": "Şehir",
+    "birthYear": "Doğum yılı",
+    "experienceYears": "Deneyim (yıl)",
+    "bio": "Hakkımda",
+    "bioHint": "Kendini birkaç cümleyle anlat. Yazdığın dilde gösterilir.",
+    "seekingJob": "İş arıyorum",
+    "availableFrom": "Başlangıç",
+    "availableTo": "Bitiş",
+    "whatsappPhone": "WhatsApp numarası",
+    "whatsappHint": "Yalnızca onaylı otellere gösterilir, misafirler göremez.",
+    "save": "Kaydet",
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi."
+  },
+  "Branches": {
+    "chief": "Şef animatör",
+    "mini_club": "Mini kulüp",
+    "show": "Sahne / show",
+    "dance": "Dans",
+    "fitness": "Fitness / aerobik",
+    "sports": "Spor",
+    "dj": "DJ",
+    "theatre": "Tiyatro",
+    "host": "Sunucu",
+    "tech": "Ses ve ışık"
+  },
+  "LanguageLevels": {
+    "basic": "Temel",
+    "good": "İyi",
+    "fluent": "Akıcı"
+  },
+  "AnimatorPage": {
+    "metaDescription": "{name} — HoliJoy'da otel animatörü profili.",
+    "experience": "{years, plural, =0 {Yeni} other {# yıl deneyim}}",
+    "seekingJob": "İş arıyor",
+    "about": "Hakkında",
+    "branches": "Branşlar",
+    "languages": "Diller",
+    "availability": "Müsaitlik",
+    "reviews": "Misafir yorumları",
+    "reviewsComingSoon": "Yorumlar çok yakında burada görünecek.",
+    "noReviews": "Henüz yorum yok",
+    "reviewCount": "{count, plural, other {# yorum}}",
+    "whatsappMessage": "Merhaba {name}, sizi HoliJoy'da gördüm.",
+    "call": "Ara"
   }
 }
